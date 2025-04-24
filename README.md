@@ -1,73 +1,106 @@
-# Welcome to your Lovable project
+# Smart Spoon - Arabic Landing Page
 
-## Project info
+A beautiful, responsive landing page for Smart Spoon, a cloud kitchen business targeting gym-goers and health-conscious individuals. The page is fully RTL (Right-to-Left) optimized for Arabic language support.
 
-**URL**: https://lovable.dev/projects/5eda9028-c7fb-45e7-8021-9c5bcd78e0f8
+## Features
 
-## How can I edit this code?
+- **Full RTL Support:** Optimized for Arabic language with proper text alignment and direction
+- **Responsive Design:** Fully responsive on mobile, tablet, and desktop devices
+- **Dark/Light Mode:** Toggle between dark and light themes
+- **Modern UI Components:** Using Shadcn UI and Tailwind CSS
+- **Form Validation:** Zod schema validation for the contact form
+- **Interactive Elements:** Animated statistics cards, pricing tables, and more
+- **Google Maps Integration:** Shows delivery locations
 
-There are several ways of editing your application.
+## Project Structure
 
-**Use Lovable**
+- `src/components/` - Reusable UI components
+- `src/pages/` - Main page components
+- `src/styles/` - Global styles and Tailwind configuration
+- `public/` - Static assets and images
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5eda9028-c7fb-45e7-8021-9c5bcd78e0f8) and start prompting.
+## Setup Instructions
 
-Changes made via Lovable will be committed automatically to this repo.
+### Prerequisites
 
-**Use your preferred IDE**
+- Node.js (v14 or newer)
+- npm or yarn
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1. Clone the repository:
+```
+git clone https://github.com/yourusername/smart-spoon-landing.git
+cd smart-spoon-landing
+```
 
-Follow these steps:
+2. Install dependencies:
+```
+npm install
+```
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+4. Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Google Maps API Setup
 
-**Use GitHub Codespaces**
+To use the Google Maps integration:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Get a Google Maps API key from the [Google Cloud Console](https://console.cloud.google.com/)
+2. Replace the placeholder URL in the `LocationsSection.tsx` with your API key:
+```jsx
+<iframe 
+  src="https://www.google.com/maps/embed?pb=YOUR_API_KEY_HERE" 
+  // ...rest of the code
+></iframe>
+```
 
-## What technologies are used for this project?
+## RTL and Arabic Font Setup
 
-This project is built with:
+This project uses:
 
-- Vite
-- TypeScript
+- Noto Sans Arabic from Google Fonts
+- RTL direction applied using the `dir="rtl"` attribute
+- Tailwind CSS for RTL styling support
+
+To modify RTL settings:
+- Check the `dir` attribute in `index.html` and `Index.tsx`
+- Review the `.rtl` class in `index.css`
+
+## Deployment
+
+### Deploying to Vercel
+
+1. Install the Vercel CLI:
+```
+npm install -g vercel
+```
+
+2. Deploy the application:
+```
+vercel
+```
+
+3. Follow the prompts to complete the deployment.
+
+## Image Attribution
+
+This project uses images from Unsplash:
+
+- Hero image: Photo by [Anna Pelzer](https://unsplash.com/@annapelzer) on Unsplash
+- Statistics images: Photos by various artists on Unsplash
+- Footer image: Photo by [Andrew Neel](https://unsplash.com/@andrewtneel) on Unsplash
+
+## Technologies Used
+
 - React
-- shadcn-ui
+- TypeScript
+- Next.js
 - Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/5eda9028-c7fb-45e7-8021-9c5bcd78e0f8) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Shadcn UI
+- React Hook Form with Zod
+- Google Maps Embed API
