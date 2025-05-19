@@ -1,15 +1,21 @@
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Check } from "lucide-react";
 
 const plans = [
   {
     name: "وجبتين يوميًا",
-    price: "799",
+    price: "90",
     description: "مناسب للأشخاص المشغولين",
     features: [
-      "40 وجبة شهريًا",
+      "52 وجبة شهريًا",
       "توصيل مجاني",
       "اختيار من القائمة الكاملة",
       "دعم عبر الواتساب",
@@ -19,10 +25,10 @@ const plans = [
   },
   {
     name: "3 وجبات يوميًا",
-    price: "999",
+    price: "130",
     description: "الخيار الأكثر شعبية",
     features: [
-      "60 وجبة شهريًا",
+      "78 وجبة شهريًا",
       "توصيل مجاني",
       "اختيار من القائمة الكاملة",
       "استشارة تغذية مجانية",
@@ -33,16 +39,15 @@ const plans = [
   },
   {
     name: "4 وجبات يوميًا",
-    price: "1299",
+    price: "160",
     description: "للرياضيين والمحترفين",
     features: [
-      "80 وجبة شهريًا",
+      "104 وجبة شهريًا",
       "توصيل مجاني",
       "اختيار من القائمة الكاملة",
       "استشارات تغذية متعددة",
       "تتبع السعرات والبروتين",
       "خطة تغذية مخصصة",
-      "وجبات إضافية بخصم 20%",
     ],
     popular: false,
   },
@@ -52,18 +57,20 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-4">خطط الاشتراك الشهرية</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">
+          خطط الاشتراك الشهرية
+        </h2>
         <p className="text-xl text-center text-muted-foreground mb-12">
           اختر عدد الوجبات المناسب لنمط حياتك
         </p>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className={`${
-                plan.popular 
-                  ? "border-primary shadow-lg shadow-primary/10 relative overflow-hidden" 
+                plan.popular
+                  ? "border-primary shadow-lg shadow-primary/10 relative overflow-hidden"
                   : "border"
               }`}
             >
@@ -79,7 +86,9 @@ export default function PricingSection() {
               <CardContent className="space-y-4">
                 <div className="flex items-baseline text-right">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="mr-2 text-muted-foreground">ريال / شهريًا</span>
+                  <span className="mr-2 text-muted-foreground">
+                    ريال / شهريًا
+                  </span>
                 </div>
                 <ul className="space-y-2 text-right">
                   {plan.features.map((feature, i) => (
@@ -91,7 +100,7 @@ export default function PricingSection() {
                 </ul>
               </CardContent>
               <CardFooter>
-                <Button 
+                <Button
                   className={`w-full ${
                     plan.popular ? "" : "bg-secondary hover:bg-secondary/90"
                   }`}
@@ -102,10 +111,12 @@ export default function PricingSection() {
             </Card>
           ))}
         </div>
-        
+
         <div className="mt-16 text-center">
           <p className="text-lg mb-4">تحتاج إلى خطة مخصصة لفريقك أو مؤسستك؟</p>
-          <Button variant="outline" size="lg">احصل على عرض سعر</Button>
+          <Button variant="outline" size="lg">
+            احصل على عرض سعر
+          </Button>
         </div>
       </div>
     </section>
