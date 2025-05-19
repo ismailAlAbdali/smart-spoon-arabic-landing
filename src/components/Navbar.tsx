@@ -60,6 +60,9 @@ export default function Navbar() {
           <a href="#contact" className="text-foreground hover:text-primary transition-colors">
             تواصل معنا
           </a>
+          <a href="/terms" className="text-foreground hover:text-primary transition-colors">
+            الشروط والأحكام
+          </a>
         </nav>
 
         {/* Actions */}
@@ -93,6 +96,9 @@ export default function Navbar() {
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <a href="#contact" className="w-full text-right">تواصل معنا</a>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <a href="/terms" className="w-full text-right">الشروط والأحكام</a>
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <a href="#" className="w-full text-right">احصل على عرض سعر</a>
