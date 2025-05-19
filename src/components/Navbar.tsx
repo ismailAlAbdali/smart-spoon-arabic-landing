@@ -39,8 +39,8 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center">
-          <img src="/logo.png" alt="Smart Spoon" className="h-12 w-auto" />
+        <a href="#" className="text-2xl font-bold text-primary">
+          Smart Spoon
         </a>
 
         {/* Desktop Navigation */}
