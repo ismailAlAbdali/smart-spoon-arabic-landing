@@ -39,7 +39,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
-                  href="#"
+                  href="/terms"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
                   الشروط والأحكام
