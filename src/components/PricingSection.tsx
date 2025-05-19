@@ -5,42 +5,44 @@ import { Check } from "lucide-react";
 
 const plans = [
   {
-    name: "أسبوعي",
-    price: "299",
-    description: "مناسب للتجربة الأولى",
+    name: "وجبتين يوميًا",
+    price: "799",
+    description: "مناسب للأشخاص المشغولين",
     features: [
-      "5 وجبات أسبوعية",
+      "40 وجبة شهريًا",
       "توصيل مجاني",
-      "اختيار من قائمة محدودة",
+      "اختيار من القائمة الكاملة",
       "دعم عبر الواتساب",
+      "تتبع السعرات والبروتين",
     ],
     popular: false,
   },
   {
-    name: "شهري",
+    name: "3 وجبات يوميًا",
     price: "999",
     description: "الخيار الأكثر شعبية",
     features: [
-      "20 وجبة شهريًا",
+      "60 وجبة شهريًا",
       "توصيل مجاني",
       "اختيار من القائمة الكاملة",
       "استشارة تغذية مجانية",
       "تتبع السعرات والبروتين",
+      "خطة تغذية مخصصة",
     ],
     popular: true,
   },
   {
-    name: "ربع سنوي",
-    price: "2699",
-    description: "أفضل قيمة لفترة طويلة",
+    name: "4 وجبات يوميًا",
+    price: "1299",
+    description: "للرياضيين والمحترفين",
     features: [
-      "60 وجبة ربع سنويًا",
+      "80 وجبة شهريًا",
       "توصيل مجاني",
       "اختيار من القائمة الكاملة",
-      "استشارة تغذية متعددة",
+      "استشارات تغذية متعددة",
       "تتبع السعرات والبروتين",
       "خطة تغذية مخصصة",
-      "وجبات إضافية بخصم 15%",
+      "وجبات إضافية بخصم 20%",
     ],
     popular: false,
   },
@@ -50,9 +52,9 @@ export default function PricingSection() {
   return (
     <section id="pricing" className="py-24 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-4">خطط الاشتراك</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">خطط الاشتراك الشهرية</h2>
         <p className="text-xl text-center text-muted-foreground mb-12">
-          اختر الخطة المناسبة لاحتياجاتك الغذائية
+          اختر عدد الوجبات المناسب لنمط حياتك
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -77,7 +79,7 @@ export default function PricingSection() {
               <CardContent className="space-y-4">
                 <div className="flex items-baseline text-right">
                   <span className="text-4xl font-bold">{plan.price}</span>
-                  <span className="mr-2 text-muted-foreground">ريال / {plan.name.split(" ")[0]}</span>
+                  <span className="mr-2 text-muted-foreground">ريال / شهريًا</span>
                 </div>
                 <ul className="space-y-2 text-right">
                   {plan.features.map((feature, i) => (
