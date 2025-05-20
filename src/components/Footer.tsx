@@ -30,7 +30,7 @@ export default function Footer() {
               <img
                 src="/logo-white.png"
                 alt="Smart Spoon"
-                className="h-12 w-auto"
+                className="h-16 w-auto"
               />
             </a>
             <p className="text-gray-400">
