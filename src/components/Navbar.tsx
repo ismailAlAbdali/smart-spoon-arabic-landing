@@ -89,7 +89,9 @@ export default function Navbar() {
         {/* Actions */}
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
-            <Button variant="outline">احصل على عرض سعر</Button>
+            <Button variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+              ابدأ الاشتراك الآن
+            </Button>
           </div>
 
           {/* Mobile Menu */}
@@ -132,8 +134,8 @@ export default function Navbar() {
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#" className="w-full text-right">
-                  احصل على عرض سعر
+                <a href="#contact" className="w-full text-right">
+                  ابدأ الاشتراك الآن
                 </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
