@@ -26,7 +26,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Smart Spoon</h3>
+            <a href="#" className="flex items-center">
+              <img
+                src="/logo-white.png"
+                alt="Smart Spoon"
+                className="h-12 w-auto"
+              />
+            </a>
             <p className="text-gray-400">
               خدمة توصيل وجبات صحية عالية البروتين للرياضيين ومحبي اللياقة
               البدنية. نقدم وجبات طازجة ومغذية لمساعدتك على تحقيق أهدافك.

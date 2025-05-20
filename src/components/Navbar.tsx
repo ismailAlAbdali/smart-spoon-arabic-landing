@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -39,28 +38,50 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold text-primary">
-          Smart Spoon
+        <a href="#" className="flex items-center">
+          <img
+            src="/logo-white.png"
+            alt="Smart Spoon"
+            className="h-12 w-auto"
+          />
         </a>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 space-x-reverse">
-          <a href="#hero" className="text-foreground hover:text-primary transition-colors">
+          <a
+            href="#hero"
+            className="text-foreground hover:text-primary transition-colors"
+          >
             الرئيسية
           </a>
-          <a href="#features" className="text-foreground hover:text-primary transition-colors">
+          <a
+            href="#features"
+            className="text-foreground hover:text-primary transition-colors"
+          >
             المميزات
           </a>
-          <a href="#pricing" className="text-foreground hover:text-primary transition-colors">
+          <a
+            href="#pricing"
+            className="text-foreground hover:text-primary transition-colors"
+          >
             الأسعار
           </a>
-          <a href="#locations" className="text-foreground hover:text-primary transition-colors">
+          <a
+            href="#locations"
+            className="text-foreground hover:text-primary transition-colors"
+          >
             المواقع
           </a>
-          <a href="#contact" className="text-foreground hover:text-primary transition-colors">
+          <a
+            href="#contact"
+            className="text-foreground hover:text-primary transition-colors"
+          >
             تواصل معنا
           </a>
-          <a href="/terms" className="text-foreground hover:text-primary transition-colors">
+          <a
+            href="/terms"
+            className="text-foreground hover:text-primary transition-colors"
+          >
             الشروط والأحكام
           </a>
         </nav>
@@ -68,7 +89,7 @@ export default function Navbar() {
         {/* Actions */}
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          
+
           <div className="hidden md:block">
             <Button variant="outline">احصل على عرض سعر</Button>
           </div>
@@ -83,25 +104,39 @@ export default function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
               <DropdownMenuItem>
-                <a href="#hero" className="w-full text-right">الرئيسية</a>
+                <a href="#hero" className="w-full text-right">
+                  الرئيسية
+                </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#features" className="w-full text-right">المميزات</a>
+                <a href="#features" className="w-full text-right">
+                  المميزات
+                </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#pricing" className="w-full text-right">الأسعار</a>
+                <a href="#pricing" className="w-full text-right">
+                  الأسعار
+                </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#locations" className="w-full text-right">المواقع</a>
+                <a href="#locations" className="w-full text-right">
+                  المواقع
+                </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#contact" className="w-full text-right">تواصل معنا</a>
+                <a href="#contact" className="w-full text-right">
+                  تواصل معنا
+                </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="/terms" className="w-full text-right">الشروط والأحكام</a>
+                <a href="/terms" className="w-full text-right">
+                  الشروط والأحكام
+                </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#" className="w-full text-right">احصل على عرض سعر</a>
+                <a href="#" className="w-full text-right">
+                  احصل على عرض سعر
+                </a>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
