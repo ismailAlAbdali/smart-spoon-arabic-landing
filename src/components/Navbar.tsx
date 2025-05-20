@@ -42,7 +42,7 @@ export default function Navbar() {
           <img
             src="/logo-white.png"
             alt="Smart Spoon"
-            className="h-12 w-auto"
+            className="h-20 w-auto"
           />
         </a>
 
@@ -88,8 +88,6 @@ export default function Navbar() {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <ThemeToggle />
-
           <div className="hidden md:block">
             <Button variant="outline">احصل على عرض سعر</Button>
           </div>

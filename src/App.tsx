@@ -9,7 +9,13 @@ import Terms from "./pages/Terms";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  // Force dark mode
+  React.useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -25,5 +31,6 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+};
 
 export default App;
