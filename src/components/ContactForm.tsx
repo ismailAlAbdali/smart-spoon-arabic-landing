@@ -22,41 +22,64 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
+import { Card, CardContent } from "@/components/ui/card";
+import { Heart, UtensilsCrossed, Soup, Apple } from "lucide-react";
 
 // Form schema with validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "الاسم مطلوب" }),
   email: z.string().email({ message: "يرجى إدخال بريد إلكتروني صحيح" }),
   phone: z.string().min(10, { message: "يرجى إدخال رقم هاتف صحيح" }),
-  inquiryType: z.string().min(1, { message: "يرجى اختيار نوع الاستفسار" }),
-  message: z.string().min(10, { message: "الرسالة يجب أن تحتوي على الأقل 10 أحرف" }),
+  mealsPerDay: z.string().min(1, { message: "يرجى اختيار عدد الوجبات" }),
+  healthIssues: z.string(),
+  message: z.string(),
 });
+
+const mealOptions = [
+  {
+    id: "2",
+    label: "وجبتين يوميًا",
+    icon: <UtensilsCrossed className="h-6 w-6" />,
+    description: "مناسب للأشخاص المشغولين",
+  },
+  {
+    id: "3",
+    label: "3 وجبات يوميًا",
+    icon: <Soup className="h-6 w-6" />,
+    description: "الخيار الأكثر شعبية",
+  },
+  {
+    id: "4",
+    label: "4 وجبات يوميًا",
+    icon: <Apple className="h-6 w-6" />,
+    description: "للرياضيين والمحترفين",
+  },
+];
 
 type FormData = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // Initialize form
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       email: "",
       phone: "",
-      inquiryType: "",
+      mealsPerDay: "",
+      healthIssues: "",
       message: "",
     },
   });
 
-  // Form submission handler
   const onSubmit = (data: FormData) => {
     setIsSubmitting(true);
     
     // Simulate form submission
     setTimeout(() => {
       console.log("Form data:", data);
-      toast.success("تم إرسال استفسارك بنجاح! سنتواصل معك قريبًا.");
+      toast.success("تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.");
       form.reset();
       setIsSubmitting(false);
     }, 1500);
@@ -65,9 +88,9 @@ export default function ContactForm() {
   return (
     <section id="contact" className="py-24 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-4">تواصل معنا</h2>
+        <h2 className="text-3xl font-bold text-center mb-4">اشترك الآن</h2>
         <p className="text-xl text-center text-muted-foreground mb-12">
-          لديك أسئلة أو استفسارات؟ تواصل معنا وسنرد عليك في أقرب وقت
+          اختر خطة الوجبات المناسبة لنمط حياتك
         </p>
         
         <div className="max-w-2xl mx-auto">
@@ -116,27 +139,59 @@ export default function ContactForm() {
                   )}
                 />
               </div>
-              
+
               <FormField
                 control={form.control}
-                name="inquiryType"
+                name="mealsPerDay"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>نوع الاستفسار</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="اختر نوع الاستفسار" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        <SelectItem value="general">استفسار عام</SelectItem>
-                        <SelectItem value="orders">طلبات كبيرة</SelectItem>
-                        <SelectItem value="partnership">شراكة تجارية</SelectItem>
-                        <SelectItem value="complaint">شكوى</SelectItem>
-                        <SelectItem value="suggestion">اقتراح</SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <FormLabel>عدد الوجبات اليومية</FormLabel>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {mealOptions.map((option) => (
+                        <Card
+                          key={option.id}
+                          className={`cursor-pointer transition-all duration-300 ${
+                            field.value === option.id
+                              ? "border-primary bg-primary/5"
+                              : "hover:border-primary/50"
+                          }`}
+                          onClick={() => field.onChange(option.id)}
+                        >
+                          <CardContent className="p-4 text-center">
+                            <div className="flex justify-center mb-2">
+                              {option.icon}
+                            </div>
+                            <h3 className="font-bold mb-1">{option.label}</h3>
+                            <p className="text-sm text-muted-foreground">
+                              {option.description}
+                            </p>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="healthIssues"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      هل لديك أي مشاكل صحية؟
+                      <span className="text-sm text-muted-foreground mr-2">
+                        (اختياري)
+                      </span>
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="اذكر أي حساسية أو مشاكل صحية يجب أن نعرفها"
+                        className="min-h-[100px]"
+                        {...field}
+                      />
+                    </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -147,11 +202,11 @@ export default function ContactForm() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>الرسالة</FormLabel>
+                    <FormLabel>ملاحظات إضافية</FormLabel>
                     <FormControl>
                       <Textarea 
-                        placeholder="أخبرنا بالمزيد عن استفسارك..."
-                        className="min-h-32"
+                        placeholder="أي ملاحظات أو تفضيلات خاصة..."
+                        className="min-h-[100px]"
                         {...field}
                       />
                     </FormControl>
@@ -161,7 +216,7 @@ export default function ContactForm() {
               />
               
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "جاري الإرسال..." : "إرسال الاستفسار"}
+                {isSubmitting ? "جاري إرسال الطلب..." : "تأكيد الاشتراك"}
               </Button>
             </form>
           </Form>
