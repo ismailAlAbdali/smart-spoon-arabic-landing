@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Info } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -19,10 +18,7 @@ export default function MealGallery() {
   const ITEMS_PER_PAGE = 12;
   const [currentPage, setCurrentPage] = useState(1);
 
-  const categories = [
-    "all",
-    ...Array.from(new Set(meals.map((meal) => meal.category))),
-  ];
+  const categories = ["all", ...Array.from(new Set(meals.map((meal) => meal.category)))];
   const categoryNames: Record<string, string> = {
     all: "الكل",
     "أطباق رئيسية": "أطباق رئيسية",
@@ -37,15 +33,9 @@ export default function MealGallery() {
     مشروبات: "مشروبات",
   };
 
-  const filteredMeals =
-    activeCategory === "all"
-      ? meals
-      : meals.filter((meal) => meal.category === activeCategory);
+  const filteredMeals = activeCategory === "all" ? meals : meals.filter((meal) => meal.category === activeCategory);
   const totalPages = Math.ceil(filteredMeals.length / ITEMS_PER_PAGE);
-  const paginatedMeals = filteredMeals.slice(
-    (currentPage - 1) * ITEMS_PER_PAGE,
-    currentPage * ITEMS_PER_PAGE,
-  );
+  const paginatedMeals = filteredMeals.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
   const handleMealClick = (meal: MealData) => {
     setSelectedMeal(meal);
@@ -54,20 +44,15 @@ export default function MealGallery() {
 
   const handlePrevious = () => {
     if (!selectedMeal) return;
-    const currentIndex = filteredMeals.findIndex(
-      (meal) => meal.id === selectedMeal.id,
-    );
-    const previousIndex =
-      (currentIndex - 1 + filteredMeals.length) % filteredMeals.length;
+    const currentIndex = filteredMeals.findIndex((meal) => meal.id === selectedMeal.id);
+    const previousIndex = (currentIndex - 1 + filteredMeals.length) % filteredMeals.length;
     setSelectedMeal(filteredMeals[previousIndex]);
     setShowInfo(false);
   };
 
   const handleNext = () => {
     if (!selectedMeal) return;
-    const currentIndex = filteredMeals.findIndex(
-      (meal) => meal.id === selectedMeal.id,
-    );
+    const currentIndex = filteredMeals.findIndex((meal) => meal.id === selectedMeal.id);
     const nextIndex = (currentIndex + 1) % filteredMeals.length;
     setSelectedMeal(filteredMeals[nextIndex]);
     setShowInfo(false);
@@ -91,24 +76,15 @@ export default function MealGallery() {
       <div className="mb-8 text-center">
         <h2 className="text-3xl font-bold mb-2">أطباقنا العربية الشهية</h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          استكشف مأكولاتنا العربية الأصيلة، المحضرة بمكونات طازجة ووصفات تقليدية
-          لتجربة صحية ولذيذة
+          استكشف مأكولاتنا العربية الأصيلة، المحضرة بمكونات طازجة ووصفات تقليدية لتجربة صحية ولذيذة
         </p>
       </div>
 
-      <Tabs
-        defaultValue="all"
-        className="mb-8"
-        onValueChange={setActiveCategory}
-      >
+      <Tabs defaultValue="all" className="mb-8" onValueChange={setActiveCategory}>
         <div className="flex justify-center mb-4">
           <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2">
             {categories.map((category) => (
-              <TabsTrigger
-                key={category}
-                value={category}
-                className="capitalize"
-              >
+              <TabsTrigger key={category} value={category} className="capitalize">
                 {categoryNames[category]}
               </TabsTrigger>
             ))}
@@ -127,24 +103,16 @@ export default function MealGallery() {
                   whileHover={{ y: -5 }}
                 >
                   <div className="aspect-square relative">
-                    <Image
+                    <img
                       src={meal.imageUrl || "/placeholder.svg"}
                       alt={meal.name}
-                      fill
-                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 16vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                      <h3 className="text-white font-semibold text-sm md:text-base">
-                        {meal.name}
-                      </h3>
+                      <h3 className="text-white font-semibold text-sm md:text-base">{meal.name}</h3>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {meal.tags.map((tag) => (
-                          <Badge
-                            key={tag}
-                            variant="secondary"
-                            className="text-xs"
-                          >
+                          <Badge key={tag} variant="secondary" className="text-xs">
                             {tag}
                           </Badge>
                         ))}
@@ -159,37 +127,31 @@ export default function MealGallery() {
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                  }
-                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                  disabled={currentPage === 1}
                 >
-                  <ChevronLeft className="h-4 w-4" />
+                  <ChevronRight className="h-4 w-4" />
                 </Button>
                 <div className="flex items-center gap-1">
-                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                    (page) => (
-                      <Button
-                        key={page}
-                        variant={currentPage === page ? "default" : "outline"}
-                        size="icon"
-                        className="w-8 h-8"
-                        onClick={() => setCurrentPage(page)}
-                      >
-                        {page}
-                      </Button>
-                    ),
-                  )}
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <Button
+                      key={page}
+                      variant={currentPage === page ? "default" : "outline"}
+                      size="icon"
+                      className="w-8 h-8"
+                      onClick={() => setCurrentPage(page)}
+                    >
+                      {page}
+                    </Button>
+                  ))}
                 </div>
                 <Button
                   variant="outline"
                   size="icon"
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.max(prev - 1, 1))
-                  }
-                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+                  disabled={currentPage === totalPages}
                 >
-                  <ChevronRight className="h-4 w-4" />
+                  <ChevronLeft className="h-4 w-4" />
                 </Button>
               </div>
             )}
@@ -221,20 +183,12 @@ export default function MealGallery() {
             </Button>
 
             <div className="flex flex-col md:flex-row h-full">
-              <div
-                className={cn(
-                  "relative w-full md:w-3/5 transition-all duration-300",
-                  showInfo ? "md:w-2/5" : "md:w-3/5",
-                )}
-              >
+              <div className={cn("relative w-full md:w-3/5 transition-all duration-300", showInfo ? "md:w-2/5" : "md:w-3/5")}>
                 <div className="aspect-square md:aspect-auto md:h-[70vh] relative">
-                  <Image
+                  <img
                     src={selectedMeal.imageUrl || "/placeholder.svg"}
                     alt={selectedMeal.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 60vw"
-                    className="object-cover"
-                    priority
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
                 </div>
 
@@ -259,16 +213,9 @@ export default function MealGallery() {
                 </Button>
               </div>
 
-              <div
-                className={cn(
-                  "p-6 w-full md:w-2/5 transition-all duration-300",
-                  showInfo ? "md:w-3/5" : "md:w-2/5",
-                )}
-              >
+              <div className={cn("p-6 w-full md:w-2/5 transition-all duration-300", showInfo ? "md:w-3/5" : "md:w-2/5")}>
                 <h2 className="text-2xl font-bold mb-2">{selectedMeal.name}</h2>
-                <p className="text-muted-foreground mb-4">
-                  {selectedMeal.description}
-                </p>
+                <p className="text-muted-foreground mb-4">{selectedMeal.description}</p>
 
                 <div className="flex flex-wrap gap-1 mb-4">
                   {selectedMeal.tags.map((tag) => (
@@ -290,37 +237,23 @@ export default function MealGallery() {
                     </div>
 
                     <div>
-                      <h3 className="text-lg font-semibold mb-2">
-                        القيمة الغذائية
-                      </h3>
+                      <h3 className="text-lg font-semibold mb-2">القيمة الغذائية</h3>
                       <div className="grid grid-cols-2 gap-2">
                         <div className="bg-muted p-2 rounded">
-                          <span className="text-sm font-medium">
-                            سعرات حرارية
-                          </span>
-                          <p className="text-lg">
-                            {selectedMeal.nutrition.calories} كالوري
-                          </p>
+                          <span className="text-sm font-medium">سعرات حرارية</span>
+                          <p className="text-lg">{selectedMeal.nutrition.calories} كالوري</p>
                         </div>
                         <div className="bg-muted p-2 rounded">
                           <span className="text-sm font-medium">بروتين</span>
-                          <p className="text-lg">
-                            {selectedMeal.nutrition.protein} جرام
-                          </p>
+                          <p className="text-lg">{selectedMeal.nutrition.protein} جرام</p>
                         </div>
                         <div className="bg-muted p-2 rounded">
-                          <span className="text-sm font-medium">
-                            كربوهيدرات
-                          </span>
-                          <p className="text-lg">
-                            {selectedMeal.nutrition.carbs} جرام
-                          </p>
+                          <span className="text-sm font-medium">كربوهيدرات</span>
+                          <p className="text-lg">{selectedMeal.nutrition.carbs} جرام</p>
                         </div>
                         <div className="bg-muted p-2 rounded">
                           <span className="text-sm font-medium">دهون</span>
-                          <p className="text-lg">
-                            {selectedMeal.nutrition.fat} جرام
-                          </p>
+                          <p className="text-lg">{selectedMeal.nutrition.fat} جرام</p>
                         </div>
                       </div>
                     </div>
