@@ -37,6 +37,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <StatisticsSection />
+      <MealGallery />
       <PricingSection />
       <LocationsSection />
       <ContactForm />
