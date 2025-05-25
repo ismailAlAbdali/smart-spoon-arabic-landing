@@ -89,7 +89,7 @@ export default function Navbar() {
         {/* Actions */}
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
-            <Button variant="outline" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button variant="outline" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
               ابدأ الاشتراك الآن
             </Button>
           </div>

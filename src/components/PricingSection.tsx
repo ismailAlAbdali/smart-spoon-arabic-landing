@@ -104,6 +104,7 @@ export default function PricingSection() {
                   className={`w-full ${
                     plan.popular ? "" : "bg-secondary hover:bg-secondary/90"
                   }`}
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   اشترك الآن
                 </Button>
