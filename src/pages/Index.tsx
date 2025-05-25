@@ -7,6 +7,7 @@ import LocationsSection from "@/components/LocationsSection";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import GallerySection from "@/components/GallerySection";
+import Layout from "@/components/Layout";
 
 const Index = () => {
   useEffect(() => {
