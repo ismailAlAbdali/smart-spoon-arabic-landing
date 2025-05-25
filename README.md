@@ -1,52 +1,60 @@
-# Smart Spoon - Arabic Landing Page
+# Smart Spoon Landing Page
 
-A beautiful, responsive landing page for Smart Spoon, a cloud kitchen business targeting gym-goers and health-conscious individuals. The page is fully RTL (Right-to-Left) optimized for Arabic language support.
+A modern React landing page for Smart Spoon, built with React, TypeScript, Tailwind CSS, and Shadcn UI.
 
-## Features
+## Development Setup
 
-- **Full RTL Support:** Optimized for Arabic language with proper text alignment and direction
-- **Responsive Design:** Fully responsive on mobile, tablet, and desktop devices
-- **Dark/Light Mode:** Toggle between dark and light themes
-- **Modern UI Components:** Using Shadcn UI and Tailwind CSS
-- **Form Validation:** Zod schema validation for the contact form
-- **Interactive Elements:** Animated statistics cards, pricing tables, and more
-- **Google Maps Integration:** Shows delivery locations
-
-## Project Structure
-
-- `src/components/` - Reusable UI components
-- `src/pages/` - Main page components
-- `src/styles/` - Global styles and Tailwind configuration
-- `public/` - Static assets and images
-
-## Setup Instructions
-
-### Prerequisites
-
-- Node.js (v14 or newer)
-- npm or yarn
-
-### Installation
-
-1. Clone the repository:
-```
-git clone https://github.com/yourusername/smart-spoon-landing.git
-cd smart-spoon-landing
-```
-
-2. Install dependencies:
-```
+1. Install dependencies:
+```bash
 npm install
 ```
 
-3. Start the development server:
-```
+2. Start development server:
+```bash
 npm run dev
 ```
 
-4. Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
+3. Open http://0.0.0.0:8080 to view the app
 
-### Google Maps API Setup
+## Deployment on Replit
+
+This project is optimized for deployment on Replit's Static Deployment service. To deploy:
+
+1. Make sure all your changes are saved
+2. Click the "Deploy" button in the top right corner
+3. Select "Static" as your deployment type
+4. Configure the deployment:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+
+Your site will be available at `<your-repl-name>.replit.app`
+
+## Project Structure
+
+- `/src` - Source code
+  - `/components` - React components
+  - `/data` - Static data files
+  - `/hooks` - Custom React hooks
+  - `/lib` - Utility functions
+  - `/pages` - Page components
+
+## Features
+
+- 🌙 Dark/Light mode
+- 📱 Fully responsive design
+- 🌐 RTL support for Arabic
+- 📍 Google Maps integration
+- 💬 Contact form with validation
+
+## Tech Stack
+
+- React 18
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- Vite
+
+## Google Maps API Setup
 
 To use the Google Maps integration:
 
@@ -69,23 +77,6 @@ This project uses:
 
 To modify RTL settings:
 - Check the `dir` attribute in `index.html` and `Index.tsx`
-- Review the `.rtl` class in `index.css`
-
-## Deployment
-
-### Deploying to Vercel
-
-1. Install the Vercel CLI:
-```
-npm install -g vercel
-```
-
-2. Deploy the application:
-```
-vercel
-```
-
-3. Follow the prompts to complete the deployment.
 
 ## Image Attribution
 
@@ -94,13 +85,3 @@ This project uses images from Unsplash:
 - Hero image: Photo by [Anna Pelzer](https://unsplash.com/@annapelzer) on Unsplash
 - Statistics images: Photos by various artists on Unsplash
 - Footer image: Photo by [Andrew Neel](https://unsplash.com/@andrewtneel) on Unsplash
-
-## Technologies Used
-
-- React
-- TypeScript
-- Next.js
-- Tailwind CSS
-- Shadcn UI
-- React Hook Form with Zod
-- Google Maps Embed API
