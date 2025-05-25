@@ -1,20 +1,54 @@
-# Smart Spoon Landing Page
+# سمارت سبون - خدمة توصيل الوجبات الصحية
 
-A modern React landing page for Smart Spoon, built with React, TypeScript, Tailwind CSS, and Shadcn UI.
+موقع تفاعلي حديث لسمارت سبون، مبني باستخدام React وTypeScript وTailwind CSS وShadcn UI.
 
-## Development Setup
+## إعداد بيئة التطوير
 
-1. Install dependencies:
+1. تثبيت المتطلبات:
 ```bash
 npm install
 ```
 
-2. Start development server:
+2. تشغيل خادم التطوير:
 ```bash
 npm run dev
 ```
 
-3. Open http://0.0.0.0:8080 to view the app
+3. افتح http://0.0.0.0:8080 لعرض التطبيق
+
+## المميزات الرئيسية
+
+- 🌙 وضع الليل/النهار
+- 📱 تصميم متجاوب بالكامل
+- 🌐 دعم الواجهة العربية (RTL)
+- 📍 تكامل مع خرائط جوجل
+- 💬 نموذج اتصال مع التحقق
+
+## الهيكل التقني
+
+- React 18
+- TypeScript
+- Tailwind CSS
+- Shadcn UI
+- Vite
+
+## هيكل المشروع
+
+- `/src` - الكود المصدري
+  - `/components` - مكونات React
+  - `/data` - ملفات البيانات الثابتة
+  - `/hooks` - React hooks مخصصة
+  - `/lib` - دوال مساعدة
+  - `/pages` - مكونات الصفحات
+
+## حول سمارت سبون
+
+سمارت سبون هي خدمة توصيل وجبات صحية متخصصة في سلطنة عُمان. نقدم:
+- وجبات عالية البروتين
+- برامج تغذية مخصصة
+- خطط غذائية للرياضيين
+- توصيل يومي للوجبات الطازجة
+- دعم من أخصائيي التغذية
 
 ## Deployment on Replit
 
@@ -28,31 +62,6 @@ This project is optimized for deployment on Replit's Static Deployment service. 
    - Output Directory: `dist`
 
 Your site will be available at `<your-repl-name>.replit.app`
-
-## Project Structure
-
-- `/src` - Source code
-  - `/components` - React components
-  - `/data` - Static data files
-  - `/hooks` - Custom React hooks
-  - `/lib` - Utility functions
-  - `/pages` - Page components
-
-## Features
-
-- 🌙 Dark/Light mode
-- 📱 Fully responsive design
-- 🌐 RTL support for Arabic
-- 📍 Google Maps integration
-- 💬 Contact form with validation
-
-## Tech Stack
-
-- React 18
-- TypeScript
-- Tailwind CSS
-- Shadcn UI
-- Vite
 
 ## Google Maps API Setup
 
