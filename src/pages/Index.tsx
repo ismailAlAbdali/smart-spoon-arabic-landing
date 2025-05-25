@@ -9,32 +9,17 @@ import Footer from "@/components/Footer";
 import GallerySection from "@/components/GallerySection";
 
 const Index = () => {
-  // Set document direction to RTL
   useEffect(() => {
     document.documentElement.dir = "rtl";
     document.documentElement.lang = "ar";
-
-    // Update the title and meta description
-    document.title = "Smart Spoon - وجبات صحية لجسم قوي";
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        "Smart Spoon - خدمة توصيل وجبات صحية عالية البروتين للرياضيين ومحبي اللياقة البدنية",
-      );
-    }
-
     return () => {
-      // Clean up when component unmounts
       document.documentElement.dir = "ltr";
       document.documentElement.lang = "en";
     };
   }, []);
 
   return (
-    <div className="min-h-screen rtl">
-      <Navbar />
+    <Layout>
       <HeroSection />
       <StatisticsSection />
       <GallerySection />
@@ -42,7 +27,7 @@ const Index = () => {
       <LocationsSection />
       <ContactForm />
       <Footer />
-    </div>
+    </Layout>
   );
 };
 
