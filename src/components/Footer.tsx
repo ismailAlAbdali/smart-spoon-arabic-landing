@@ -83,7 +83,7 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">تواصل معنا</h3>
             <div className="flex justify-start gap-4 mb-6">
               <a
-                href="#"
+                href="https://www.instagram.com/smart_spooon/"
                 aria-label="Instagram"
                 className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
@@ -104,7 +104,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://api.whatsapp.com/send?phone=96897657795"
                 aria-label="WhatsApp"
                 className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
