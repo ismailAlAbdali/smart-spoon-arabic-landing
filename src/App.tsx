@@ -7,6 +7,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Terms from "./pages/Terms";
 import React from "react";
+import StatisticsSection from "./components/StatisticsSection";
+import GallerySection from "./components/GallerySection";
 
 const queryClient = new QueryClient();
 
