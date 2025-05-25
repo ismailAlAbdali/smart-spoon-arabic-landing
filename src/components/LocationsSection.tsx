@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
@@ -6,13 +7,13 @@ export default function LocationsSection() {
     <section id="locations" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">مناطق التوصيل</h2>
-
+        
         <Tabs defaultValue="area1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-8">
             <TabsTrigger value="area1">المنطقة الوسطى</TabsTrigger>
             <TabsTrigger value="area2">المنطقة الغربية</TabsTrigger>
           </TabsList>
-
+          
           <TabsContent value="area1">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <Card className="overflow-hidden">
@@ -30,21 +31,27 @@ export default function LocationsSection() {
                   ></iframe>
                 </CardContent>
               </Card>
-
+              
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-4">
-                    المنطقة الوسطى
-                  </h3>
+                  <h3 className="text-2xl font-semibold mb-4">المنطقة الوسطى</h3>
                   <p className="text-lg">
-                    نغطي منطقة الرياض والقصيم، مع خدمة توصيل سريعة وموثوقة
-                    للوجبات الصحية الطازجة.
+                    نغطي منطقة الرياض والقصيم، مع خدمة توصيل سريعة وموثوقة للوجبات الصحية الطازجة.
                   </p>
+                </div>
+                
+                <div>
+                  <h4 className="text-xl font-medium mb-2">الأحياء المشمولة:</h4>
+                  <ul className="list-disc list-inside space-y-1 mr-4">
+                    <li>الرياض - جميع الأحياء</li>
+                    <li>القصيم - المدينة المركزية</li>
+                    <li>الخرج - المناطق الرئيسية</li>
+                  </ul>
                 </div>
               </div>
             </div>
           </TabsContent>
-
+          
           <TabsContent value="area2">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
               <Card className="overflow-hidden">
@@ -62,16 +69,22 @@ export default function LocationsSection() {
                   ></iframe>
                 </CardContent>
               </Card>
-
+              
               <div className="space-y-6">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-4">
-                    المنطقة الغربية
-                  </h3>
+                  <h3 className="text-2xl font-semibold mb-4">المنطقة الغربية</h3>
                   <p className="text-lg">
-                    نغطي منطقة جدة ومكة المكرمة، مع خدمة توصيل سريعة وموثوقة
-                    للوجبات الصحية الطازجة.
+                    نغطي منطقة جدة ومكة المكرمة، مع خدمة توصيل سريعة وموثوقة للوجبات الصحية الطازجة.
                   </p>
+                </div>
+                
+                <div>
+                  <h4 className="text-xl font-medium mb-2">الأحياء المشمولة:</h4>
+                  <ul className="list-disc list-inside space-y-1 mr-4">
+                    <li>جدة - الأحياء الرئيسية</li>
+                    <li>مكة المكرمة - مناطق محددة</li>
+                    <li>المدينة المنورة - المنطقة المركزية</li>
+                  </ul>
                 </div>
               </div>
             </div>
