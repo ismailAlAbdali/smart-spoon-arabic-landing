@@ -6,7 +6,7 @@ export default function LocationsSection() {
   return (
     <section id="locations" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">مناطق التوصيل</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">مناطق التوزيع</h2>
         
         <Tabs defaultValue="area1" className="w-full">
           <TabsList className="grid w-full grid-cols-2 mb-8">

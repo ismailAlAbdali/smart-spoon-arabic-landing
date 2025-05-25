@@ -74,17 +74,18 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     // Format WhatsApp message
-    const message = `*طلب اشتراك جديد*\n\n` +
+    const message =
+      `*طلب اشتراك جديد*\n\n` +
       `الاسم: ${data.name}\n` +
       `رقم الهاتف: ${data.phone}\n` +
-      `عدد الوجبات: ${mealOptions.find(m => m.id === data.mealsPerDay)?.label}\n` +
-      (data.healthIssues ? `المشاكل الصحية: ${data.healthIssues}\n` : '') +
-      (data.message ? `ملاحظات إضافية: ${data.message}` : '');
+      `عدد الوجبات: ${mealOptions.find((m) => m.id === data.mealsPerDay)?.label}\n` +
+      (data.healthIssues ? `المشاكل الصحية: ${data.healthIssues}\n` : "") +
+      (data.message ? `ملاحظات إضافية: ${data.message}` : "");
 
     // Replace with your WhatsApp business number
-    const whatsappNumber = "971XXXXXXXXX";
+    const whatsappNumber = "96897657795";
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open(whatsappUrl, "_blank");
 
     setIsSubmitting(false);
   };
@@ -121,7 +122,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>رقم الهاتف</FormLabel>
                     <FormControl>
-                      <Input placeholder="05xxxxxxxx" {...field} />
+                      <Input placeholder="99999999" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
