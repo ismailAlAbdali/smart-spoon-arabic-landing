@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -28,7 +27,6 @@ import { Heart, UtensilsCrossed, Soup, Apple } from "lucide-react";
 // Form schema with validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "الاسم مطلوب" }),
-  email: z.string().email({ message: "يرجى إدخال بريد إلكتروني صحيح" }),
   phone: z.string().min(10, { message: "يرجى إدخال رقم هاتف صحيح" }),
   mealsPerDay: z.string().min(1, { message: "يرجى اختيار عدد الوجبات" }),
   healthIssues: z.string(),
@@ -60,12 +58,11 @@ type FormData = z.infer<typeof formSchema>;
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      email: "",
       phone: "",
       mealsPerDay: "",
       healthIssues: "",
@@ -75,14 +72,21 @@ export default function ContactForm() {
 
   const onSubmit = (data: FormData) => {
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      console.log("Form data:", data);
-      toast.success("تم إرسال طلبك بنجاح! سنتواصل معك قريبًا.");
-      form.reset();
-      setIsSubmitting(false);
-    }, 1500);
+
+    // Format WhatsApp message
+    const message = `*طلب اشتراك جديد*\n\n` +
+      `الاسم: ${data.name}\n` +
+      `رقم الهاتف: ${data.phone}\n` +
+      `عدد الوجبات: ${mealOptions.find(m => m.id === data.mealsPerDay)?.label}\n` +
+      (data.healthIssues ? `المشاكل الصحية: ${data.healthIssues}\n` : '') +
+      (data.message ? `ملاحظات إضافية: ${data.message}` : '');
+
+    // Replace with your WhatsApp business number
+    const whatsappNumber = "971XXXXXXXXX";
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -92,7 +96,7 @@ export default function ContactForm() {
         <p className="text-xl text-center text-muted-foreground mb-12">
           اختر خطة الوجبات المناسبة لنمط حياتك
         </p>
-        
+
         <div className="max-w-2xl mx-auto">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -109,36 +113,20 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>البريد الإلكتروني</FormLabel>
-                      <FormControl>
-                        <Input placeholder="email@example.com" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>رقم الهاتف</FormLabel>
-                      <FormControl>
-                        <Input placeholder="05xxxxxxxx" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
+
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>رقم الهاتف</FormLabel>
+                    <FormControl>
+                      <Input placeholder="05xxxxxxxx" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <FormField
                 control={form.control}
@@ -196,7 +184,7 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="message"
@@ -204,7 +192,7 @@ export default function ContactForm() {
                   <FormItem>
                     <FormLabel>ملاحظات إضافية</FormLabel>
                     <FormControl>
-                      <Textarea 
+                      <Textarea
                         placeholder="أي ملاحظات أو تفضيلات خاصة..."
                         className="min-h-[100px]"
                         {...field}
@@ -214,9 +202,9 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
-              
+
               <Button type="submit" className="w-full" disabled={isSubmitting}>
-                {isSubmitting ? "جاري إرسال الطلب..." : "تأكيد الاشتراك"}
+                {isSubmitting ? "جاري إرسال الطلب..." : "تواصل معنا عبر واتساب"}
               </Button>
             </form>
           </Form>
