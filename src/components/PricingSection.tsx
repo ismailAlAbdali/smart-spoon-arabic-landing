@@ -104,20 +104,17 @@ export default function PricingSection() {
                   className={`w-full ${
                     plan.popular ? "" : "bg-secondary hover:bg-secondary/90"
                   }`}
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() =>
+                    document
+                      .getElementById("contact")
+                      ?.scrollIntoView({ behavior: "smooth" })
+                  }
                 >
                   اشترك الآن
                 </Button>
               </CardFooter>
             </Card>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <p className="text-lg mb-4">تحتاج إلى خطة مخصصة لفريقك أو مؤسستك؟</p>
-          <Button variant="outline" size="lg">
-            احصل على عرض سعر
-          </Button>
         </div>
       </div>
     </section>
