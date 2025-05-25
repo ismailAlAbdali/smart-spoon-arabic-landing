@@ -18,14 +18,14 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 z-10">
         <div className="max-w-3xl mr-auto">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-            وجبات صحية لجسم قوي مع <span className="text-primary">Smart Spoon</span>
+            وجبات صحية لجسم قوي مع <span className="text-primary">سمارت سبون</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-up">
             وجبات عالية البروتين، طازجة ومغذية مصممة خصيصًا لمساعدتك على تحقيق أهدافك في اللياقة البدنية.
           </p>
-          <div className="flex flex-wrap gap-4 rtl">
-            <Button className="text-lg px-8 py-6">ابدأ الاشتراك الآن</Button>
-            <Button variant="outline" className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm text-white border-white hover:bg-white/20">
+          <div className="flex flex-wrap gap-4 flex-row-reverse">
+            <Button className="text-lg px-8 py-6 font-bold">ابدأ الاشتراك الآن</Button>
+            <Button variant="outline" className="text-lg px-8 py-6 bg-white/10 backdrop-blur-sm text-white border-white hover:bg-white/20 font-bold">
               احصل على عرض سعر
             </Button>
           </div>
