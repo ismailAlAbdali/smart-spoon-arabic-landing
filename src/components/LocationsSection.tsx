@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
@@ -9,8 +8,10 @@ export default function LocationsSection() {
     <section id="locations" className="py-24 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">مناطق التوزيع</h2>
-        <p className="text-xl text-center mb-8">وكلاء لاجود انواع المكملات الغذائية و الصحية في سلطنة عمان 🇴🇲</p>
-        
+        <p className="text-xl text-center mb-8">
+          وكلاء لاجود انواع المكملات الغذائية و الصحية في سلطنة عمان 🇴🇲
+        </p>
+
         <div className="grid md:grid-cols-3 gap-8">
           {/* Al Khoudh Branch */}
           <Card>
@@ -28,9 +29,13 @@ export default function LocationsSection() {
                   className="mb-4"
                 ></iframe>
                 <Button className="w-full" variant="default" asChild>
-                  <a href="http://wa.me/+96890105050" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="http://wa.me/+96890105050"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <MessageCircle className="ml-2 h-5 w-5" />
-                    تواصل معنا
+                    تواصل مع الفرع
                   </a>
                 </Button>
               </div>
@@ -53,9 +58,13 @@ export default function LocationsSection() {
                   className="mb-4"
                 ></iframe>
                 <Button className="w-full" variant="default" asChild>
-                  <a href="http://wa.me/+96879371003" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="http://wa.me/+96879371003"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <MessageCircle className="ml-2 h-5 w-5" />
-                    تواصل معنا
+                    تواصل مع الفرع
                   </a>
                 </Button>
               </div>
@@ -78,9 +87,13 @@ export default function LocationsSection() {
                   className="mb-4"
                 ></iframe>
                 <Button className="w-full" variant="default" asChild>
-                  <a href="http://wa.me/+96871529931" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="http://wa.me/+96871529931"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <MessageCircle className="ml-2 h-5 w-5" />
-                    تواصل معنا
+                    تواصل مع الفرع
                   </a>
                 </Button>
               </div>

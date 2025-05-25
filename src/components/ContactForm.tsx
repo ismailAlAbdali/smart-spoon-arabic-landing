@@ -27,7 +27,7 @@ import { Heart, UtensilsCrossed, Soup, Apple } from "lucide-react";
 // Form schema with validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "الاسم مطلوب" }),
-  phone: z.string().min(10, { message: "يرجى إدخال رقم هاتف صحيح" }),
+  phone: z.string().min(8, { message: "يرجى إدخال رقم هاتف صحيح" }),
   mealsPerDay: z.string().min(1, { message: "يرجى اختيار عدد الوجبات" }),
   healthIssues: z.string(),
   message: z.string(),
