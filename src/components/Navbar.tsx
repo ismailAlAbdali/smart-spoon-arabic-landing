@@ -55,12 +55,6 @@ export default function Navbar() {
             الرئيسية
           </a>
           <a
-            href="#features"
-            className="text-foreground hover:text-primary transition-colors"
-          >
-            المميزات
-          </a>
-          <a
             href="#pricing"
             className="text-foreground hover:text-primary transition-colors"
           >
@@ -89,7 +83,14 @@ export default function Navbar() {
         {/* Actions */}
         <div className="flex items-center gap-4">
           <div className="hidden md:block">
-            <Button variant="outline" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}>
+            <Button
+              variant="outline"
+              onClick={() =>
+                document
+                  .getElementById("pricing")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
               ابدأ الاشتراك الآن
             </Button>
           </div>
