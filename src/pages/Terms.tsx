@@ -6,7 +6,7 @@ export default function Terms() {
   return (
     <div className="min-h-screen rtl">
       <Navbar />
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-12 py-24">
         <h1 className="text-4xl font-bold text-center mb-12">
           الشروط والأحكام
         </h1>
