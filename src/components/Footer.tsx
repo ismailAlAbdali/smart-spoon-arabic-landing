@@ -85,6 +85,8 @@ export default function Footer() {
               <a
                 href="https://www.instagram.com/smart_spooon/"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <svg
@@ -106,6 +108,8 @@ export default function Footer() {
               <a
                 href="https://api.whatsapp.com/send?phone=96897657795"
                 aria-label="WhatsApp"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
               >
                 <svg
