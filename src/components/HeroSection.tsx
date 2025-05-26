@@ -24,8 +24,9 @@ export default function HeroSection() {
             <span className="text-primary">سمارت سبون</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-up">
-            وجبات عالية البروتين، طازجة ومغذية مصممة خصيصًا لمساعدتك على تحقيق
-            أهدافك في اللياقة البدنية.
+            ووجبات عالية البروتين، طازجة ومغذية خالية من المواد الحافظة و
+            الألوان المصنعة صنعت , خصيصاً لمساعدتك على تحقيق أهدافك في اللياقة و
+            الصحة البدنية.
           </p>
           <div className="flex flex-wrap gap-4 flex-row-reverse">
             <Button

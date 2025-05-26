@@ -26,7 +26,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About */}
           <div>
-            <a href="#" className="flex items-center">
+            <a href="/" className="flex items-center">
               <img
                 src="/logo-white.png"
                 alt="Smart Spoon"
@@ -53,26 +53,26 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/#gallery"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  سياسة الخصوصية
+                  معرض الوجبات
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/#pricing"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  الأسئلة الشائعة
+                  الأسعار والاشتراكات
                 </a>
               </li>
               <li>
                 <a
-                  href="#"
+                  href="/#contact"
                   className="text-gray-400 hover:text-primary transition-colors"
                 >
-                  عن Smart Spoon
+                  تواصل معنا
                 </a>
               </li>
             </ul>

@@ -38,7 +38,7 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img
             src="/logo-white.png"
             alt="Smart Spoon"
@@ -49,25 +49,25 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8 space-x-reverse">
           <a
-            href="#hero"
+            href="/#hero"
             className="text-foreground hover:text-primary transition-colors"
           >
             الرئيسية
           </a>
           <a
-            href="#pricing"
+            href="/#pricing"
             className="text-foreground hover:text-primary transition-colors"
           >
             الأسعار
           </a>
           <a
-            href="#locations"
+            href="/#locations"
             className="text-foreground hover:text-primary transition-colors"
           >
             المواقع
           </a>
           <a
-            href="#contact"
+            href="/#contact"
             className="text-foreground hover:text-primary transition-colors"
           >
             تواصل معنا
@@ -85,11 +85,15 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Button
               variant="outline"
-              onClick={() =>
-                document
-                  .getElementById("pricing")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+              onClick={() => {
+                if (window.location.pathname === '/') {
+                  document
+                    .getElementById("pricing")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                } else {
+                  window.location.href = "/#pricing";
+                }
+              }}
             >
               ابدأ الاشتراك الآن
             </Button>
@@ -105,27 +109,27 @@ export default function Navbar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
               <DropdownMenuItem>
-                <a href="#hero" className="w-full text-right">
+                <a href="/#hero" className="w-full text-right">
                   الرئيسية
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#features" className="w-full text-right">
-                  المميزات
+                <a href="/#gallery" className="w-full text-right">
+                  المعرض
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#pricing" className="w-full text-right">
+                <a href="/#pricing" className="w-full text-right">
                   الأسعار
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#locations" className="w-full text-right">
+                <a href="/#locations" className="w-full text-right">
                   المواقع
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#contact" className="w-full text-right">
+                <a href="/#contact" className="w-full text-right">
                   تواصل معنا
                 </a>
               </DropdownMenuItem>
@@ -135,7 +139,7 @@ export default function Navbar() {
                 </a>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <a href="#contact" className="w-full text-right">
+                <a href="/#pricing" className="w-full text-right">
                   ابدأ الاشتراك الآن
                 </a>
               </DropdownMenuItem>
