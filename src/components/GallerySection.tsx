@@ -1,6 +1,7 @@
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { meals } from "../data/meals";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import {
@@ -16,11 +17,26 @@ const MEALS_PER_PAGE = 9;
 
 export default function GallerySection() {
   const [currentPage, setCurrentPage] = useState(1);
-  
-  const totalPages = Math.ceil(meals.length / MEALS_PER_PAGE);
+  const [selectedCategory, setSelectedCategory] = useState<string>("الكل");
+
+  // Get unique categories
+  const categories = useMemo(() => {
+    const uniqueCategories = Array.from(new Set(meals.map(meal => meal.category)));
+    return ["الكل", ...uniqueCategories];
+  }, []);
+
+  // Filter meals based on selected category
+  const filteredMeals = useMemo(() => {
+    if (selectedCategory === "الكل") {
+      return meals;
+    }
+    return meals.filter(meal => meal.category === selectedCategory);
+  }, [selectedCategory]);
+
+  const totalPages = Math.ceil(filteredMeals.length / MEALS_PER_PAGE);
   const startIndex = (currentPage - 1) * MEALS_PER_PAGE;
   const endIndex = startIndex + MEALS_PER_PAGE;
-  const currentMeals = meals.slice(startIndex, endIndex);
+  const currentMeals = filteredMeals.slice(startIndex, endIndex);
 
   const goToPage = (page: number) => {
     setCurrentPage(page);
@@ -28,12 +44,41 @@ export default function GallerySection() {
     document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+    setCurrentPage(1); // Reset to first page when changing category
+  };
+
   return (
     <section id="gallery" className="py-24 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">قائمة الوجبات</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {currentMeals.map((meal, index) => (
+        
+        {/* Category Filter Buttons */}
+        <div className="flex flex-wrap justify-center gap-3 mb-8">
+          {categories.map((category) => (
+            <Button
+              key={category}
+              variant={selectedCategory === category ? "default" : "outline"}
+              onClick={() => handleCategoryChange(category)}
+              className="transition-all duration-300 hover:scale-105"
+            >
+              {category}
+            </Button>
+          ))}
+        </div>
+
+        {/* Results Count */}
+        <div className="text-center mb-6 text-muted-foreground">
+          {selectedCategory === "الكل" 
+            ? `إجمالي الوجبات: ${filteredMeals.length}` 
+            : `وجبات ${selectedCategory}: ${filteredMeals.length}`
+          }
+        </div>
+
+        {currentMeals.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {currentMeals.map((meal, index) => (
             <Dialog key={startIndex + index}>
               <DialogTrigger asChild>
                 <Card className="cursor-pointer hover:shadow-lg transition-shadow">
@@ -68,8 +113,20 @@ export default function GallerySection() {
                 </div>
               </DialogContent>
             </Dialog>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-12">
+            <p className="text-xl text-muted-foreground">لا توجد وجبات في هذه الفئة</p>
+            <Button 
+              variant="outline" 
+              onClick={() => handleCategoryChange("الكل")}
+              className="mt-4"
+            >
+              عرض جميع الوجبات
+            </Button>
+          </div>
+        )}
 
         {/* Pagination */}
         {totalPages > 1 && (
