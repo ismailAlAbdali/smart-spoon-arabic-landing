@@ -1,16 +1,40 @@
 
+import { useState } from "react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { meals } from "../data/meals";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from "@/components/ui/pagination";
+
+const MEALS_PER_PAGE = 9;
 
 export default function GallerySection() {
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const totalPages = Math.ceil(meals.length / MEALS_PER_PAGE);
+  const startIndex = (currentPage - 1) * MEALS_PER_PAGE;
+  const endIndex = startIndex + MEALS_PER_PAGE;
+  const currentMeals = meals.slice(startIndex, endIndex);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    // Scroll to top of gallery section
+    document.getElementById("gallery")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="gallery" className="py-24 bg-white dark:bg-gray-800">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12">قائمة الوجبات</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {meals.map((meal, index) => (
-            <Dialog key={index}>
+          {currentMeals.map((meal, index) => (
+            <Dialog key={startIndex + index}>
               <DialogTrigger asChild>
                 <Card className="cursor-pointer hover:shadow-lg transition-shadow">
                   <div className="h-48 overflow-hidden">
@@ -46,6 +70,41 @@ export default function GallerySection() {
             </Dialog>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="mt-12 flex justify-center">
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious 
+                    onClick={() => currentPage > 1 && goToPage(currentPage - 1)}
+                    className={currentPage === 1 ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                  />
+                </PaginationItem>
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <PaginationItem key={page}>
+                    <PaginationLink
+                      onClick={() => goToPage(page)}
+                      isActive={currentPage === page}
+                      className="cursor-pointer"
+                    >
+                      {page}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                
+                <PaginationItem>
+                  <PaginationNext 
+                    onClick={() => currentPage < totalPages && goToPage(currentPage + 1)}
+                    className={currentPage === totalPages ? "pointer-events-none opacity-50" : "cursor-pointer"}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        )}
       </div>
     </section>
   );
