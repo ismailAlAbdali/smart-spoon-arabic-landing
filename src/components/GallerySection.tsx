@@ -101,6 +101,12 @@ export default function GallerySection() {
                 </DialogHeader>
                 <div className="space-y-4 text-right">
                   <img src={meal.image} alt={meal.name} className="w-full h-64 object-cover rounded-lg" />
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">{meal.category}</span>
+                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-bold">
+                      {meal.calories} سعرة حرارية
+                    </span>
+                  </div>
                   <p className="text-muted-foreground">{meal.description}</p>
                   <div>
                     <h4 className="font-bold mb-2">المكونات:</h4>
