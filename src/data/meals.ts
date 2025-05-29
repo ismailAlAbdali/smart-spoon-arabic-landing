@@ -2,6 +2,7 @@ export interface Meal {
   name: string;
   category: string;
   image: string;
+  calories: string;
   description: string;
   ingredients: string[];
 }
@@ -10,7 +11,7 @@ export const meals: Meal[] = [
   {
     name: "أرز مع تونة",
     category: "وجبة رئيسية",
-    calories: "280",
+    calories: "480",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9479-min.jpg",
     description:
@@ -32,7 +33,7 @@ export const meals: Meal[] = [
   {
     name: "سمك فيليه مع أرز",
     category: "وجبة رئيسية",
-    calories: "260",
+    calories: "433",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9482-min.jpg",
     description:
@@ -51,7 +52,7 @@ export const meals: Meal[] = [
   {
     name: "بطاط مهروسة مع تونة",
     category: "وجبة رئيسية",
-    calories: "320",
+    calories: "450",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9485-min.jpg",
     description:
@@ -71,7 +72,7 @@ export const meals: Meal[] = [
   {
     name: "برياني دجاج",
     category: "وجبة رئيسية",
-    calories: "450",
+    calories: "520",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9491-min.jpg",
     description:
@@ -91,7 +92,7 @@ export const meals: Meal[] = [
   {
     name: "دجاج تندوري مع أرز",
     category: "وجبة رئيسية",
-    calories: "340",
+    calories: "400",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9495-min.jpg",
     description:
@@ -104,7 +105,7 @@ export const meals: Meal[] = [
   {
     name: "دجاج تندوري مع بطاط ودجز",
     category: "وجبة رئيسية",
-    calories: "410",
+    calories: "460",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9499-min.jpg",
     description:
@@ -119,7 +120,7 @@ export const meals: Meal[] = [
   {
     name: "كباب لحم مع أرز",
     category: "وجبة رئيسية",
-    calories: "380",
+    calories: "590",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9503-min.jpg",
     description:
@@ -137,7 +138,7 @@ export const meals: Meal[] = [
   {
     name: "لحم ستروغونوف مع بطاطا حلوة",
     category: "وجبة رئيسية",
-    calories: "300",
+    calories: "500",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9507-min.jpg",
     description:
@@ -156,7 +157,7 @@ export const meals: Meal[] = [
   {
     name: "تونة مع أرز",
     category: "وجبة رئيسية",
-    calories: "280",
+    calories: "370",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9511-2-min.jpg",
     description:
@@ -178,7 +179,7 @@ export const meals: Meal[] = [
   {
     name: "باستا دجاج",
     category: "وجبة رئيسية",
-    calories: "420",
+    calories: "520",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9515-min.jpg",
     description:
@@ -196,7 +197,7 @@ export const meals: Meal[] = [
   {
     name: "بطاط مشوي مع كباب",
     category: "وجبة رئيسية",
-    calories: "390",
+    calories: "520",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9518-min.jpg",
     description:
@@ -206,7 +207,7 @@ export const meals: Meal[] = [
   {
     name: "لحم مع أرز بالزعفران",
     category: "وجبة رئيسية",
-    calories: "360",
+    calories: "480",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9522-min.jpg",
     description:
@@ -220,7 +221,7 @@ export const meals: Meal[] = [
   {
     name: "باستا لحم",
     category: "وجبة رئيسية",
-    calories: "440",
+    calories: "500",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9526-2-min.jpg",
     description:
@@ -236,7 +237,7 @@ export const meals: Meal[] = [
   {
     name: "كباب مع أرز",
     category: "وجبة رئيسية",
-    calories: "375",
+    calories: "500",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9530-min.jpg",
     description:
@@ -253,7 +254,7 @@ export const meals: Meal[] = [
   {
     name: "ستيك لحم مع بطاط مهروس",
     category: "وجبة رئيسية",
-    calories: "480",
+    calories: "490",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9534-min.jpg",
     description:
@@ -267,7 +268,7 @@ export const meals: Meal[] = [
   {
     name: "دجاج مع أرز",
     category: "وجبة رئيسية",
-    calories: "330",
+    calories: "450",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9537-min.jpg",
     description: "شرائح دجاج متبلة ومطهوة مع أرز بسمتي وخضار مفرومة وصوص خفيف.",
@@ -280,7 +281,7 @@ export const meals: Meal[] = [
   {
     name: "بطاط مهروس مع دجاج",
     category: "وجبة رئيسية",
-    calories: "350",
+    calories: "430",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9540-min.jpg",
     description:
@@ -293,7 +294,7 @@ export const meals: Meal[] = [
   {
     name: "بطاط مشوي مع مشكاك دجاج",
     category: "وجبة رئيسية",
-    calories: "395",
+    calories: "400",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9543-min.jpg",
     description: "مشكاك دجاج مشوي على الفحم بتتبيلة خفيفة مع بطاطا ودجز مشوية.",
@@ -305,7 +306,7 @@ export const meals: Meal[] = [
   {
     name: "ساندويش دجاج",
     category: "وجبة رئيسية",
-    calories: "290",
+    calories: "260 للقطعة",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9552-min.jpg",
     description: "خبز محشو بقطع دجاج مشوي مع خضار طازجة وصوص خفيف.",
@@ -320,7 +321,7 @@ export const meals: Meal[] = [
   {
     name: "برجر لحم",
     category: "وجبة رئيسية",
-    calories: "420",
+    calories: "390",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9560-min.jpg",
     description:
@@ -337,7 +338,7 @@ export const meals: Meal[] = [
   {
     name: "بيتزا دجاج صحي",
     category: "وجبة رئيسية",
-    calories: "380",
+    calories: "460",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9570-min.jpg",
     description:
@@ -354,7 +355,7 @@ export const meals: Meal[] = [
   {
     name: "كيكة الشوكولاتة الداكنة",
     category: "طبق جانبي",
-    calories: "250",
+    calories: "للقطعة 170",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9578-min.jpg",
     description:
@@ -372,7 +373,7 @@ export const meals: Meal[] = [
   {
     name: "وافل بالكاكاو",
     category: "طبق جانبي",
-    calories: "180",
+    calories: "للقطعة 220",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9583-min.jpg",
     description:
@@ -387,7 +388,7 @@ export const meals: Meal[] = [
   {
     name: "كيكة لوتس",
     category: "طبق جانبي",
-    calories: "320",
+    calories: "للقطعة 200",
     image:
       "https://bank-sohar-dig.b-cdn.net/smart-spoon/food-gallery/_DSC9595-min.jpg",
     description:
