@@ -152,7 +152,7 @@ export default function TestimonialSection() {
                         <img
                           src={testimonials[currentIndex].image || "/placeholder.svg"}
                           alt={`شهادة من ${testimonials[currentIndex].name}`}
-                          className="w-full h-full object-contain bg-white"
+                          className="w-full h-full object-contain bg-black"
                         />
                       </div>
                     </div>
