@@ -78,13 +78,13 @@ export default function TestimonialSection() {
         <div className="absolute inset-0 bg-black/20"></div>
 
         {/* Dynamic animated background */}
-        <DynamicBackground primaryColor="#708090" secondaryColor="#1a1a1a" speed={0.003} />
+        <DynamicBackground primaryColor="#9ACD32" secondaryColor="#1a1a1a" speed={0.003} />
       </div>
 
       <div className="container mx-auto space-y-12 px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
-            <div className="w-16 h-1 bg-[#708090] mx-auto rounded-full mb-4"></div>
+            <div className="w-16 h-1 bg-[#9ACD32] mx-auto rounded-full mb-4"></div>
           </div>
           <h1 className="text-5xl font-bold text-white mb-6">آراء عملائنا</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -100,7 +100,7 @@ export default function TestimonialSection() {
           <div className="absolute top-1/2 -right-5 md:right-0 lg:right-4 z-10 transform -translate-y-1/2">
             <button
               onClick={handlePrev}
-              className="bg-[#708090]/80 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-[#708090] transition-all duration-300"
+              className="bg-[#9ACD32]/80 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-[#9ACD32] transition-all duration-300"
               aria-label="السابق"
             >
               <ChevronRight className="h-5 w-5" />
@@ -110,7 +110,7 @@ export default function TestimonialSection() {
           <div className="absolute top-1/2 -left-5 md:left-0 lg:left-4 z-10 transform -translate-y-1/2">
             <button
               onClick={handleNext}
-              className="bg-[#708090]/80 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-[#708090] transition-all duration-300"
+              className="bg-[#9ACD32]/80 backdrop-blur-sm text-white p-3 rounded-full shadow-lg hover:bg-[#9ACD32] transition-all duration-300"
               aria-label="التالي"
             >
               <ChevronLeft className="h-5 w-5" />
@@ -141,13 +141,13 @@ export default function TestimonialSection() {
                 <div className="w-full md:w-2/5 flex-shrink-0">
                   <ShineBorder
                     borderWidth={2}
-                    borderColor="rgba(112, 128, 144, 0.4)"
+                    borderColor="rgba(154, 205, 50, 0.4)"
                     shineWidth={150}
                     shineColor="rgba(255, 255, 255, 0.6)"
                     borderRadius="1rem"
                   >
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-[#708090]/70 to-[#708090]/30 rounded-2xl transform rotate-3 scale-105 opacity-70"></div>
+                      <div className="absolute inset-0 bg-gradient-to-tr from-[#9ACD32]/70 to-[#9ACD32]/30 rounded-2xl transform rotate-3 scale-105 opacity-70"></div>
                       <div className="relative overflow-hidden rounded-2xl border-4 border-[#1a1a1a] shadow-xl aspect-square">
                         <img
                           src={testimonials[currentIndex].image || "/placeholder.svg"}
@@ -162,7 +162,7 @@ export default function TestimonialSection() {
                 <div className="w-full md:w-3/5 rtl">
                   <ShineBorder
                     borderWidth={1}
-                    borderColor="rgba(112, 128, 144, 0.3)"
+                    borderColor="rgba(154, 205, 50, 0.3)"
                     shineWidth={200}
                     shineColor="rgba(255, 255, 255, 0.4)"
                     borderRadius="1rem"
@@ -171,7 +171,7 @@ export default function TestimonialSection() {
                       <div className="flex justify-between items-start mb-6">
                         <div className="flex items-center gap-1">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} className="h-6 w-6 fill-[#708090] text-[#708090]" />
+                            <Star key={i} className="h-6 w-6 fill-[#9ACD32] text-[#9ACD32]" />
                           ))}
                         </div>
                       </div>
@@ -181,7 +181,7 @@ export default function TestimonialSection() {
                       </p>
 
                       <div className="flex justify-between items-center">
-                        <h3 className="font-bold text-2xl text-[#708090]">
+                        <h3 className="font-bold text-2xl text-[#9ACD32]">
                           {testimonials[currentIndex].name}
                         </h3>
                         <div className="text-md text-gray-400">عميل سعيد</div>
@@ -204,7 +204,7 @@ export default function TestimonialSection() {
                 }}
                 className={cn(
                   "w-3 h-3 rounded-full transition-all duration-300",
-                  index === currentIndex ? "bg-[#708090] w-8" : "bg-gray-700 hover:bg-[#708090]/70",
+                  index === currentIndex ? "bg-[#9ACD32] w-8" : "bg-gray-700 hover:bg-[#9ACD32]/70",
                 )}
                 aria-label={`انتقل إلى الشهادة ${index + 1}`}
               />
