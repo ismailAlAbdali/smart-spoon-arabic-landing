@@ -95,22 +95,26 @@ export default function GallerySection() {
                   </CardHeader>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="max-w-2xl">
+              <DialogContent className="w-[95vw] max-w-2xl max-h-[90vh] overflow-y-auto m-4">
                 <DialogHeader>
-                  <DialogTitle className="text-right">{meal.name}</DialogTitle>
+                  <DialogTitle className="text-right text-lg sm:text-xl">{meal.name}</DialogTitle>
                 </DialogHeader>
                 <div className="space-y-4 text-right">
-                  <img src={meal.image} alt={meal.name} className="w-full h-64 object-cover rounded-lg" />
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">{meal.category}</span>
-                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-bold">
+                  <img 
+                    src={meal.image} 
+                    alt={meal.name} 
+                    className="w-full h-48 sm:h-64 object-cover rounded-lg" 
+                  />
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+                    <span className="text-sm text-muted-foreground order-2 sm:order-1">{meal.category}</span>
+                    <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-bold order-1 sm:order-2 self-end sm:self-auto">
                       {meal.calories} سعرة حرارية
                     </span>
                   </div>
-                  <p className="text-muted-foreground">{meal.description}</p>
+                  <p className="text-muted-foreground text-sm sm:text-base">{meal.description}</p>
                   <div>
-                    <h4 className="font-bold mb-2">المكونات:</h4>
-                    <ul className="list-disc list-inside space-y-1">
+                    <h4 className="font-bold mb-2 text-base sm:text-lg">المكونات:</h4>
+                    <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
                       {meal.ingredients.map((ingredient, i) => (
                         <li key={i}>{ingredient}</li>
                       ))}
